@@ -12,7 +12,7 @@ const bodyParser = require("body-parser")
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://neon-kitsune-f975d2.netlify.app",
+    origin: "http://localhost:3000",
     credentials: true
 }));
 app.use("/", express.static("uploads"))
