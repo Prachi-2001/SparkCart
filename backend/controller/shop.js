@@ -46,7 +46,8 @@ router.post("/create-shop", upload.single("file"), async (req, res, next) => {
     };
 
     const activationToken = createActivationToken(seller);
-    const activationUrl = `http://localhost:3000/seller/activation/${activationToken}`;
+    // const activationUrl = `http://localhost:3000/seller/activation/${activationToken}`;
+    const activationUrl = `https://spark-frontend-6k513b9z5-prachi-2001.vercel.app/seller/activation/${activationToken}`;
   
     try {
       await sendMail({

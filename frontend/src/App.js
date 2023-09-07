@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import {
   LoginPage,
   SignUpPage,
@@ -35,7 +35,7 @@ const App = () => {
     <>
       {loading ? null : (
         <>
-          <Router>
+          <Router basename="/">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />

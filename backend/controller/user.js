@@ -58,7 +58,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
   };
 
   const activationToken = createActivationToken(user);
-  const activationUrl = `http://localhost:3000/activation/${activationToken}`;
+  const activationUrl = `https://spark-frontend-6k513b9z5-prachi-2001.vercel.app/activation/${activationToken}`;
 
   try {
     await sendMail({

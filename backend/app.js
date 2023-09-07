@@ -12,7 +12,7 @@ const bodyParser = require("body-parser")
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://sparkart-lrk2n3xis-prachi-2001.vercel.app/",
+    origin: "https://spark-frontend-6k513b9z5-prachi-2001.vercel.app/",
     credentials: true
 }));
 app.use("/", express.static("uploads"))
