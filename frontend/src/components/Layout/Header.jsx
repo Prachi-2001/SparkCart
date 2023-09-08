@@ -30,7 +30,7 @@ const Header = ({ activeHeading }) => {
   const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(true);
   // added for debugging
-  // console.log(user);
+  console.log(user);
 
   const handleSearchChange = (e) => {
     const term = e.target.value;
@@ -62,7 +62,7 @@ const Header = ({ activeHeading }) => {
             <Link to="/">
               <img
                 src="https://res.cloudinary.com/dpbnq7fm8/image/upload/v1694002437/sparkcart_logo_abwcrh.png"
-                alt="3783209c85e80526a5f936202444c3c4.png"
+                alt=""
                 border="0"
                 width={"200px"}
               />
@@ -216,7 +216,7 @@ const Header = ({ activeHeading }) => {
           <div>
             <Link to="/">
               <img
-                src="https://imgtr.ee/images/2023/08/26/3783209c85e80526a5f936202444c3c4.png"
+                src="https://res.cloudinary.com/dpbnq7fm8/image/upload/v1694002437/sparkcart_logo_abwcrh.png"
                 alt="3783209c85e80526a5f936202444c3c4.png"
                 border="0"
                 width={"200px"}

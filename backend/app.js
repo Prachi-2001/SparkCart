@@ -12,7 +12,7 @@ const bodyParser = require("body-parser")
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://spark-frontend-6k513b9z5-prachi-2001.vercel.app/",
+    origin: "http://localhost:3000",
     credentials: true
 }));
 app.use("/", express.static("uploads"))
@@ -37,4 +37,3 @@ app.use("/api/v2/seller", seller);
 app.use(ErrorHandler)
 
 module.exports = app;
-

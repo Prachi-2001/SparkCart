@@ -10,7 +10,6 @@ process.on("uncaughtException", (err) => {
   console.log(`shutting down the server for ${err.message}`);
 });
 
-
 // config
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({

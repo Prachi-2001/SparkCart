@@ -19,7 +19,7 @@ router.post("/create-shop", upload.single("file"), async (req, res, next) => {
 
     if (sellerEmail) {
       const filename = req.file.filename;
-      const filepath = `uploads/${filename}`;
+      const filepath = `backend/uploads/${filename}`;
       // Unlink - delete that image from the path
       fs.unlink(filepath, (err) => {
         if (err) {
@@ -46,8 +46,8 @@ router.post("/create-shop", upload.single("file"), async (req, res, next) => {
     };
 
     const activationToken = createActivationToken(seller);
-    // const activationUrl = `http://localhost:3000/seller/activation/${activationToken}`;
-    const activationUrl = `https://spark-frontend-6k513b9z5-prachi-2001.vercel.app/seller/activation/${activationToken}`;
+    const activationUrl = `http://localhost:3000/seller/activation/${activationToken}`;
+    // const activationUrl = `https://spark-frontend-6k513b9z5-prachi-2001.vercel.app/seller/activation/${activationToken}`;
   
     try {
       await sendMail({
@@ -133,8 +133,6 @@ router.post(
         }
   
         const user = await Shop.findOne({ email }).select("+password");
-
-        console.log(user);
   
         if (!user) {
           return next(new ErrorHandler("User doesn't exists!", 400));
