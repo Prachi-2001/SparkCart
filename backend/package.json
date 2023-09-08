@@ -2,9 +2,13 @@
   "name": "sparkcart",
   "version": "1.0.0",
   "description": "",
-  "main": "backend/server.js",
+  "main": "server.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "start": "nodemon server.js ",
+    "dev": "node server.js ",
     "build": "npm i",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

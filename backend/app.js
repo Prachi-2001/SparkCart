@@ -15,7 +15,11 @@ app.use(cors({
     origin: "http://localhost:3000",
     credentials: true
 }));
+
 app.use("/", express.static("uploads"))
+app.use("/", (req,res) => {
+    res.send("Hello World!")
+})
 app.use(bodyParser.urlencoded({extended: true}));
 
 
@@ -23,7 +27,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // config
 if(process.env.NODE_ENV !== "PRODUCTION"){
     require("dotenv").config({
-        path: "./config/.env"
+        path: "config/.env"
     })
 }
 
