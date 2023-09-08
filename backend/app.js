@@ -17,7 +17,7 @@ app.use(cors({
 }));
 
 app.use("/", express.static("uploads"))
-app.use("/", (req,res) => {
+app.use("/test", (req,res) => {
     res.send("Hello World!")
 })
 app.use(bodyParser.urlencoded({extended: true}));
