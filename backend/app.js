@@ -4,6 +4,11 @@ const app = express();
 const cors = require("cors");
 const path = require("path")
 
+app.use(cors({
+    // origin: "http://localhost:3000",
+    // origin: "https://spark-frontend-rho.vercel.app",
+    credentials: true
+}));
 // madeatory for a parsing cookie
 const cookieParser = require("cookie-parser");
 
@@ -12,11 +17,6 @@ const bodyParser = require("body-parser")
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({
-    // origin: "http://localhost:3000",
-    origin: "https://spark-frontend-rho.vercel.app",
-    credentials: true
-}));
 
 app.use("/", express.static(path.join(__dirname,"./uploads")))
 app.use("/test", (req,res) => {
