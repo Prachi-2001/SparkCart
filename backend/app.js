@@ -6,9 +6,9 @@ const path = require("path")
 
 app.use(cors({
     // origin: "http://localhost:3000",
-    origin: ["http://spark-frontend-three.vercel.app",
+    origin: ["https://sparkart.netlify.app/",
     "http://localhost:3000",
-    "https://spark-frontend-three.vercel.app",
+    "http://sparkart.netlify.app/",
     "https://localhost:3000",
     ],
     methods: ['GET','POST','PUT','DELETE'],
