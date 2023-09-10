@@ -4,16 +4,23 @@ const app = express();
 const cors = require("cors");
 const path = require("path")
 
-app.use(cors({
-    // origin: "http://localhost:3000",
-    origin: ["https://sparkart.netlify.app/",
-    "http://localhost:3000",
-    "http://sparkart.netlify.app/",
-    "https://localhost:3000",
-    ],
-    methods: ['GET','POST','PUT','DELETE'],
-    credentials: true
-}));
+// app.use(cors({
+//     // origin: "http://localhost:3000",
+//     origin: ["https://sparkart.netlify.app/",
+//     "http://localhost:3000",
+//     "http://sparkart.netlify.app/",
+//     "https://localhost:3000",
+//     ],
+//     methods: ['GET','POST','PUT','DELETE'],
+//     credentials: true
+// }));
+
+app.use((req,res,next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");  
+    res.setHeader(  
+        "Access-Control-Allow-Headers",  
+        "Origin, X-Requested-With, Content-Type, Accept");
+});
 // madeatory for a parsing cookie
 const cookieParser = require("cookie-parser");
 
