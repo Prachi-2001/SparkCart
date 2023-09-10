@@ -57,8 +57,8 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
     // },
   };
   const activationToken = createActivationToken(user);
-  // const activationUrl = `http://localhost:3000/activation/${activationToken}`
-  const activationUrl = `https://spark-frontend-rho.vercel.app/activation/${activationToken}`
+  const activationUrl = `http://localhost:3000/activation/${activationToken}`
+  // const activationUrl = `https://spark-frontend-rho.vercel.app/activation/${activationToken}`
   
   try {
     await sendMail({
@@ -118,11 +118,14 @@ router.post(
   })
 );
 
+
 // login user
 router.post(
   "/login-user",
   catchAsyncError(async (req, res, next) => {
     try {
+      console.log(req.body);
+      
       const { email, password } = req.body;
 
       if (!email || !password) {
@@ -142,8 +145,8 @@ router.post(
           new ErrorHandler("Please provide the correct information", 400)
         );
       }
-
       sendToken(user, 201, res);
+
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
     }

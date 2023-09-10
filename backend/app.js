@@ -5,8 +5,13 @@ const cors = require("cors");
 const path = require("path")
 
 app.use(cors({
-    // //origin: "http://localhost:3000",
-    origin: ["http://spark-frontend-rho.vercel.app",],
+    // origin: "http://localhost:3000",
+    origin: ["http://spark-frontend-rho.vercel.app",
+    "http://localhost:3000",
+    "https://spark-frontend-rho.vercel.app",
+    "https://localhost:3000",
+    ],
+    methods: ['GET','POST','PUT','DELETE'],
     credentials: true
 }));
 // madeatory for a parsing cookie
