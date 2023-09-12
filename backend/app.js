@@ -4,39 +4,31 @@ const app = express();
 const cors = require("cors");
 const path = require("path")
 
-// app.use(cors({
-//     // origin: "http://localhost:3000",
-//     origin: ["https://sparkart.netlify.app/",
-//     "http://localhost:3000",
-//     "http://sparkart.netlify.app/",
-//     "https://localhost:3000",
-//     ],
-//     methods: ['GET','POST','PUT','DELETE'],
-//     credentials: true
-// }));
-
-app.use((req,res,next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");  
-    res.setHeader(  
-        "Access-Control-Allow-Headers",  
-        "Origin, X-Requested-With, Content-Type, Accept");
-});
+// app.use((req,res,next) => {
+//     res.setHeader("Access-Control-Allow-Origin", "*");  
+//     res.setHeader(  
+//         "Access-Control-Allow-Headers",  
+//         "Origin, X-Requested-With, Content-Type, Accept");
+// });
 // madeatory for a parsing cookie
 const cookieParser = require("cookie-parser");
 
 // body parser
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
 
 app.use(express.json())
 app.use(cookieParser())
+
+app.use(cors({
+    origin: ["http://localhost:3000", "https://localhost:3000"],
+    credentials: true
+}));
 
 app.use("/", express.static(path.join(__dirname,"./uploads")))
 app.use("/test", (req,res) => {
     res.send("Hello World!")
 })
 app.use(bodyParser.urlencoded({extended: true}));
-
-
 
 // config
 if(process.env.NODE_ENV !== "PRODUCTION"){
